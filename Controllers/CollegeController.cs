@@ -49,14 +49,13 @@ namespace CollegeInformation.Controllers
             return Ok(colege);
         }
         [HttpGet("[action]")]
-        public async Task<IActionResult> SearchCollege(string query)
+        public async Task<IActionResult>  SearchCollege(string query)
         {
             var colege = await (from college in _context.Colleges
                                 where college.Name.StartsWith(query)
                                 select new
                                 {
-
-                                    Id = college.Id,
+                                 Id = college.Id,
                                     Name = college.Name,
                                     Address = college.Address,
                                     ImagePath = college.ImagePath,
